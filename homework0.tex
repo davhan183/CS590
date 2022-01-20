@@ -1,0 +1,182 @@
+\documentclass[12pt]{article}
+
+\usepackage{color}
+%\input{rgb}
+%----------Packages----------
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{dsfont}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{tikz}
+	\usetikzlibrary{matrix}
+\usepackage[all]{xy}
+\usepackage[mathcal]{eucal}
+\usepackage{verbatim}  %%includes comment environment
+\usepackage{fullpage}  %%smaller margins
+%----------Commands----------
+
+%%penalizes orphans
+\clubpenalty=9999
+\widowpenalty=9999
+
+
+%% blackboard bold math capitals
+\newcommand{\bbA}{\mathbb{A}}
+\newcommand{\bbB}{\mathbb{B}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbD}{\mathbb{D}}
+\newcommand{\bbE}{\mathbb{E}}
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbG}{\mathbb{G}}
+\newcommand{\bbH}{\mathbb{H}}
+\newcommand{\bbI}{\mathbb{I}}
+\newcommand{\bbJ}{\mathbb{J}}
+\newcommand{\bbK}{\mathbb{K}}
+\newcommand{\bbL}{\mathbb{L}}
+\newcommand{\bbM}{\mathbb{M}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbO}{\mathbb{O}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbS}{\mathbb{S}}
+\newcommand{\bbT}{\mathbb{T}}
+\newcommand{\bbU}{\mathbb{U}}
+\newcommand{\bbV}{\mathbb{V}}
+\newcommand{\bbW}{\mathbb{W}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bbY}{\mathbb{Y}}
+\newcommand{\bbZ}{\mathbb{Z}}
+
+
+\renewcommand{\phi}{\varphi}
+
+\renewcommand{\emptyset}{\O}
+
+\providecommand{\abs}[1]{\lvert #1 \rvert}
+\providecommand{\norm}[1]{\lVert #1 \rVert}
+
+
+\providecommand{\ar}{\rightarrow}
+\providecommand{\arr}{\longrightarrow}
+
+\renewcommand{\_}[1]{\underline{ #1 }}
+
+
+\DeclareMathOperator{\ext}{ext}
+
+
+
+%----------Theorems----------
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+\newtheorem{axiom}{Axiom}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{warning}[theorem]{Warning}
+
+
+\numberwithin{equation}{subsection}
+
+
+%----------Title-------------
+
+\title{Homework 0}
+\author{David Han}
+\date{January 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Conditional probability}
+\begin{gather*}
+\text{Given $\Omega = \{(r \succ b \succ g), (r \succ g \succ b), (b \succ r \succ g), (b \succ g \succ r), (g \succ b \succ r), (g \succ r \succ b)\}$} \\
+\text{where B is $r \succ g$ and A is $b \succ r$} \\ \\
+\bbP(B|A)=\frac{\bbP(A\cap B)}{\bbP(A)} \\
+\bbP(r \succ g | b \succ r)=\frac{\bbP(b \succ r \cap r \succ g)}{\bbP(b \succ r)}
+\end{gather*}
+
+As $\bbP(b \succ r \cap r \succ g)$ is the probability of b being preferred over r and r being preferred over g or the probability of b being preferred over r being preferred over g, it is the possibility of event $(b \succ r \succ g)$ or $1/6$. \\
+
+Likewise $\bbP(b \succ r)$ is the probability of b being preferred over r, meaning it is the probability of events $\{(b \succ r \succ g), (b \succ g \succ r), (g \succ b \succ r)\}$ or $3/6$. \\
+
+\begin{center}
+Thus the probability that in this second round the child will choose to play with the toy that we already offered in the first round is: \\
+$\dfrac{\bbP(b \succ r \cap r \succ g)}{\bbP(b \succ r)}=\dfrac{1/6}{3/6}=\dfrac{1}{3}$
+\end{center}
+
+\section{Probability density functions}
+\subsection{Calculate expectation of bid}
+\begin{align*}
+E[v_J]&=\int_{-\infty}^{\infty}x\cdot f(x)dx \\
+&=\int_{1}^{3}x\cdot \frac{1}{2}dx \\
+&=\frac{1}{2} \left[ \frac{x^2}{2} \right]_{1}^{3} \\
+&=2 \\ \\
+E[b_J]&=\int_{1}^{2}x\cdot \frac{1}{2}dx \\
+&=\frac{1}{2} \left[ \frac{x^2}{2} \right]_{1}^{2} \\
+&=\frac{3}{4}
+\end{align*}
+
+\subsection{Calculate probability}
+\subsection*{Solution to first subproblem}
+\begin{align*}
+E[b]&=\int_{-\infty}^{\infty}x\cdot f(x)dx \\
+&=\int_{0}^{3}x\cdot \frac{1}{3}dx \\
+&=\frac{1}{3} \left[ \frac{x^2}{2} \right]_{0}^{3} \\
+&=\frac{3}{2} \\ \\
+F(x)&=\int_{-\infty}^{3}f(x)dx \\
+&=\int_{-\infty}^{3}\frac{1}{3}dx
+\end{align*}
+
+\subsection*{Solution to second subproblem}
+\begin{align*}
+\bbP(b\leq 2)&=\int_{0}^{2}x\cdot \frac{1}{3}dx \\
+&=\frac{1}{3} \left[ \frac{x^2}{2} \right]_{0}^{2} \\
+&=\frac{2}{3} \\
+\end{align*}
+
+\subsection*{Solution to third subproblem}
+\begin{align*}
+\bbP \left( b \leq \frac{3}{4} \right)&=\int_{0}^{3/4}x\cdot \frac{1}{3}dx \\
+&=\frac{1}{3} \left[ \frac{x^2}{2} \right]_{0}^{3/4} \\
+&=\frac{3}{32} \\
+\end{align*}
+
+\section{Combinatorics}
+\subsection*{Solution to first subproblem}
+\[
+\bbP(\text{No one})=\frac{1}{10!}
+\]
+
+\subsection*{Solution to second subproblem}
+Since there is only 9 possible students the first student can switch with, then 8 possible students the second student can switch with, and so forth to 1.
+\[
+\bbP(\text{Exactly one student})=\frac{45}{10!}
+\]
+
+\subsection*{Solution to third subproblem}
+Since two swaps will be needed only if there are 3 out of place students in a chain or 4 out of place students in two separate chains, we can determine the probability of two swaps being needed by determining the probability of these outcomes. \\
+
+% For 4 out of place students in two separate chains, there is  
+\[
+\bbP(\text{Exactly two students})=\frac{870}{10!}
+\]
+
+\end{document}

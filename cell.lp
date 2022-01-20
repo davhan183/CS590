@@ -1,0 +1,23 @@
+minimize
+phone_a+phone_b+phone_c+phone_d+phone_e+phone_f
+subject to
+phone_a+phone_c+phone_f>1
+phone_a+phone_d>1
+phone_a+phone_b+phone_e>1 
+phone_b+phone_c+phone_d+phone_f>1
+phone_b+phone_d+phone_e>1
+phone_c+phone_e>1
+phone_a>0
+phone_b>0
+phone_c>0
+phone_d>0
+phone_e>0
+phone_f>0
+binary
+phone_a
+phone_b
+phone_c
+phone_d
+phone_e
+phone_f
+end
